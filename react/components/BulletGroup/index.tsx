@@ -18,20 +18,16 @@ const BulletGroup = ({
   const {isMobile} = useDevice()
   const {list} = useListContext() || []
 
-  console.log(bullets)
-
   const bulletsContent = getBulletsAsTSXList(bullets)
   const newListContextValue = list.concat(bulletsContent)
-
-  if (false) console.log(children, list)
 
   return (
     <ListContextProvider list={newListContextValue}>
     {isMobile
       ?
-        <div className={handles["bulletGroup-container"]}>{bulletsContent}</div>
+        <div className={`${handles["bulletGroup-container"]} ph3`}>{bulletsContent}</div>
       :
-        children
+      <div className={`${handles["bulletGroup-container"]} ph3`}>{children}</div>
     }
     </ListContextProvider>
   )
