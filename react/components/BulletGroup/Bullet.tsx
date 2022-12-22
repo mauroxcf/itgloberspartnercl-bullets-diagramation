@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'vtex.render-runtime'
 import { LinkProps } from './BulletTypes'
 import { useCssHandles } from 'vtex.css-handles'
+import PropTypes from 'prop-types';
 import './styles.css'
 
 type Props = {
@@ -9,6 +10,7 @@ type Props = {
   titleBullet: string
   link: LinkProps
 }
+
 
 const Bullet = ({src, titleBullet, link}:Props) => {
   const CSS_HANDLES = ["bullet__item", "bullet__item--title", "bullet__item--image", "bullet__item--link"]
@@ -21,6 +23,17 @@ const Bullet = ({src, titleBullet, link}:Props) => {
       </Link>
     </div>
     )
+}
+
+Bullet.propTypes = {
+  src: PropTypes.string,
+  titleBullet: PropTypes.string,
+  link: PropTypes.element,
+}
+
+Bullet.defaultProps = {
+  src: "",
+  titleBullet: "",
 }
 
 Bullet.schema = {

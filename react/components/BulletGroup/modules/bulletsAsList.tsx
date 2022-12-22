@@ -1,6 +1,8 @@
 import React from 'react'
 import { BulletsSchema} from '../BulletTypes'
 import Bullet from '../Bullet'
+import PropTypes from 'prop-types';
+
 
 export const getBulletsAsTSXList = (
     bullets: BulletsSchema
@@ -27,3 +29,14 @@ export const getBulletsAsTSXList = (
     )
   })
 )
+
+getBulletsAsTSXList.propTypes = {
+  bullets: PropTypes.array,
+}
+
+getBulletsAsTSXList.defaultProps = {
+  bullets: [{
+    image: "",
+    titleBullet: ""
+  }],
+}

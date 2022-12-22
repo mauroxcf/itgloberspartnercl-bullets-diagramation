@@ -4,10 +4,12 @@ import { BulletsSchema } from './BulletTypes'
 import { useDevice } from 'vtex.device-detector'
 import { getBulletsAsTSXList } from './modules/bulletsAsList'
 import { useCssHandles } from 'vtex.css-handles'
+import PropTypes from 'prop-types';
 
 export interface BulletGroupProps {
   bullets: BulletsSchema
 }
+
 
 const BulletGroup = ({
   bullets,
@@ -33,6 +35,16 @@ const BulletGroup = ({
   )
 }
 
+BulletGroup.propTypes = {
+  bullets: PropTypes.array,
+  children: PropTypes.element,
+}
 
+BulletGroup.defaultProps = {
+  bullets: [{
+    image: "",
+    titleBullet: ""
+  }],
+}
 
 export default BulletGroup
